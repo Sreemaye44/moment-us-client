@@ -1,0 +1,24 @@
+[
+    {
+        "serviceName": "Wedding Shooting",
+        "image": "https://images.unsplash.com/photo-1595353797108-a080235374a9?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1899&q=80",
+        "rating":"5",
+        "price":"1200",
+        "description":"Everyone wants to keep their memorable day as a photo. If it is a wedding and engagement ceremony, then there is no space to talk about it. For wedding photography, there is must need for the best photographer and photography services. Because the wedding is the best part of life and we love it. As you want to need attractive and high-quality photography for your special days, you must need a professional photographer."
+    },
+    {
+        "serviceName": "Engagement Shooting",
+        "image": "https://images.unsplash.com/photo-1598497140217-432f2900f351?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1887&q=80",
+        "rating":"5",
+        "price":"800",
+        "description":"Engagement photography refers to photographs of couples who just got engaged. It includes capturing snapshots during popping the question, artful couple portraits, and photo sessions celebrating the milestone. Engagement photos usually end as albums, large prints, or collages. They require good lighting, high-resolution image files, and perfect sharpness. However, they also require lots of creativity to avoid being cliché."
+    },
+    {
+        "serviceName": "Anniversary",
+        "image": "https://images.unsplash.com/photo-1525328302834-764f32276842?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80",
+        "rating":"4",
+        "price":"500",
+        "description":"A wedding anniversary is an important event for every couple. It is a symbol of your love, respect for each other, every moment spent together, as well as the solid relationships you’ve built. On this day the beloved ones make surprises and recollect pleasant and the most romantic memories of their married life. If you are going to organize a photo session, these anniversary photoshoot ideas will surely come in handy."
+    }
+
+]
