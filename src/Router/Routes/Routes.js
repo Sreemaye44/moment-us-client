@@ -6,6 +6,7 @@ import Login from "../../Pages/Login/Login";
 import ServiceArea from "../../Pages/ServiceArea/ServiceArea";
 import ServiceDetails from "../../Pages/ServiceDetails/ServiceDetails";
 import SignUp from "../../Pages/SignUp/SignUp";
+import PrivateRoute from "./PrivateRoute";
 
 const router=createBrowserRouter([
     {
@@ -26,7 +27,7 @@ const router=createBrowserRouter([
         },
         {
           path: '/serviceDetails/:id',
-          element:<ServiceDetails></ServiceDetails>,
+          element:<PrivateRoute><ServiceDetails></ServiceDetails></PrivateRoute>,
           loader: ({params})=>fetch(`http://localhost:5000/services/${params.id}`)
         },
       

@@ -2,11 +2,11 @@ import React, { useEffect, useState } from 'react';
 
 const ShowReview = ({service}) => {
     const [showReview,setShowReview]=useState([]);
-    console.log(service)
     useEffect(()=>{
         fetch(`http://localhost:5000/review?service=${service._id}`)
         .then(res=>res.json())
         .then(data=>{
+            console.log(data)
             setShowReview(data);
         });
 
@@ -14,7 +14,7 @@ const ShowReview = ({service}) => {
     return (
         <div>
         
-            {showReview.rating}
+            {showReview.length}
         </div>
     );
 };

@@ -1,6 +1,9 @@
 import React, { useContext } from 'react';
+import { FaUser } from 'react-icons/fa';
 import { AuthContext } from '../../Context/AuthProvider/AuthProvider';
 import ShowReview from '../ShowReview/ShowReview';
+import userDefault from '../../../src/assets/user-default.png'
+import { Link } from 'react-router-dom';
 
 const Review = ({service}) => {
     const {user}=useContext(AuthContext);
@@ -44,7 +47,8 @@ const Review = ({service}) => {
           <h2 className='text-4xl'>Your review: </h2>
           <div className="avatar">
   <div className="w-24 rounded-full ring ring-offset-base-100 ring-offset-2">
-    <img src={user?.photoURL} alt="" />
+    <img src={user?.photoURL ? user?.photoURL: userDefault} alt="" />
+    
   </div>
 </div>
           <h3>{user?.displayName}</h3>
@@ -52,7 +56,16 @@ const Review = ({service}) => {
          </div>
          <input type="number" name="rating" placeholder="Rate our service" className="input input-bordered w-full max-w-xs" />
          <textarea name="message" className="textarea textarea-bordered h-24 w-full" placeholder="Your message" required></textarea>
-         <input className='btn btn-error' type="submit" value="Post" />
+         {
+            user?.email?
+            <input className='btn btn-error' type="submit" value="Post" />
+            :
+            <>
+           
+            <p>To post a review Please <Link to='/login'><button className='btn'>Login</button></Link></p>
+            </>
+         }
+         
           </form>
           <ShowReview key={_id}
           service={service}></ShowReview>
