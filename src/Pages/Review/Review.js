@@ -1,5 +1,6 @@
 import React, { useContext } from 'react';
 import { AuthContext } from '../../Context/AuthProvider/AuthProvider';
+import ShowReview from '../ShowReview/ShowReview';
 
 const Review = ({service}) => {
     const {user}=useContext(AuthContext);
@@ -53,7 +54,11 @@ const Review = ({service}) => {
          <textarea name="message" className="textarea textarea-bordered h-24 w-full" placeholder="Your message" required></textarea>
          <input className='btn btn-error' type="submit" value="Post" />
           </form>
+          <ShowReview key={_id}
+          service={service}></ShowReview>
         </div>
+        
+
     );
 };
 
