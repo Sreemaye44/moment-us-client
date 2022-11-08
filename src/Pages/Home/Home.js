@@ -1,6 +1,7 @@
 import React from 'react';
 import useTitle from '../../Hooks/useTitle';
 import Banner from '../Banner/Banner';
+import ServiceArea from '../ServiceArea/ServiceArea';
 
 const Home = () => {
     useTitle('home');
@@ -8,6 +9,8 @@ const Home = () => {
         <div>
         
            <Banner></Banner>
+           <ServiceArea></ServiceArea>
+
            
            
         </div>
