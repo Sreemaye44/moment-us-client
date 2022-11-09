@@ -1,4 +1,5 @@
 import React, { useContext, useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 import { AuthContext } from '../../Context/AuthProvider/AuthProvider';
 
 const MyReview = () => {
@@ -37,7 +38,7 @@ const MyReview = () => {
                     <div className='flex'>
                         <h2>{review.serviceName}</h2>
                         <img src={user?.photoURL} alt="" srcset="" />
-                        <button className='btn'>edit</button>
+                        <Link to='/editReview'><button className='btn'>edit</button></Link>
                         <button onClick={()=>handleDelete(review._id)}  className='btn'>Delete
                         
                         
