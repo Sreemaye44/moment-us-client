@@ -1,5 +1,5 @@
 import React, { useContext, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import swal from 'sweetalert';
 import { FaGoogle } from 'react-icons/fa';
 import { AuthContext } from '../../Context/AuthProvider/AuthProvider';
@@ -12,6 +12,8 @@ const Login = () => {
  
     const googleProvider=new GoogleAuthProvider()
     const navigate=useNavigate();
+    const location=useLocation();
+  const from=location.state?.from?.pathname || '/';
     const handleLogin=event=>{
         event.preventDefault();
         const form=event.target;
@@ -21,8 +23,9 @@ const Login = () => {
         .then(result=>{
             const user=result.user;
             form.reset();
-          
-            swal("Successfully Loged in!!", "success")
+            navigate(from,{replace:true})
+            swal("Successfully Loged in!!", "success");
+            
               })
         .catch(err=>{
             console.error(err)
@@ -33,7 +36,8 @@ const Login = () => {
         providerLogin(googleProvider)
         .then(result=>{
           const user=result.user;
-          console.log(user);
+          navigate(from,{replace:true})
+            swal("Successfully Loged in!!", "success");
         })
         .catch(error=>console.error(error));
 }

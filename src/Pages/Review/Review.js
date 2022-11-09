@@ -17,10 +17,12 @@ const Review = ({service}) => {
 
         const review={
             service:_id,
+            serviceName,
             rating,
             message,
             userName:user.displayName,
-            userImage: user.photoURL
+            userImage: user.photoURL,
+            email: user.email
         }
         fetch('http://localhost:5000/review', {
     method: 'POST',
