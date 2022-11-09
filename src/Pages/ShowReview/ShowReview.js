@@ -14,7 +14,8 @@ const ShowReview = ({service}) => {
     return (
         <div>
         
-            {showReview.length}
+            {!showReview.length ? "no review to show":showReview.length}
+            
         </div>
     );
 };

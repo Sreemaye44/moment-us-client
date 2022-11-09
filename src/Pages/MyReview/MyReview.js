@@ -9,6 +9,7 @@ const MyReview = () => {
         fetch(`http://localhost:5000/myReview?email=${user?.email}`)
         .then(res=>res.json())
         .then(data=>{
+            console.log(data);
             setMyReview(data);
         });
 
@@ -38,7 +39,7 @@ const MyReview = () => {
                     <div className='flex'>
                         <h2>{review.serviceName}</h2>
                         <img src={user?.photoURL} alt="" srcset="" />
-                        <Link to='/editReview'><button className='btn'>edit</button></Link>
+                        <Link to={`/editReview/${review._id}`}><button className='btn'>edit</button></Link>
                         <button onClick={()=>handleDelete(review._id)}  className='btn'>Delete
                         
                         
