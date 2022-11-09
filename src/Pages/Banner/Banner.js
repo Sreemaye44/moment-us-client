@@ -1,40 +1,21 @@
 import React from 'react';
-import banner from '../../../src/assets/photo-1591604466107-ec97de577aff.avif';
-import './Banner.css'
+import banner1 from '../../../src/assets/photo-1591604466107-ec97de577aff.avif';
+import banner2 from '../../../src/assets/photo-1497387674890-4ecd2af62493.avif';
+
 const Banner = () => {
     return (
-        <div className="carousel w-full">
-        <div id="slide1" className="carousel-item carousel-img relative w-full">
-          <img src={banner} className="w-full h-fit" alt='' />
-          <div className="absolute text-center justify-between transform -translate-y-1/2 right-24 top-1/4"> 
-            <h1 className='text-5xl font-extrabold text-black'>Make Your Wedding</h1><br/>
-            <h1 className='text-5xl font-extrabold text-black'>A Wonderful Story</h1>
-           
-           <button className='btn m-7'>discover</button>
-          </div>
-        </div> 
-        <div id="slide2" className="carousel-item relative w-full">
-          <img src="https://placeimg.com/800/200/arch" className="w-full" />
-          <div className="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
-            <a href="#slide1" className="btn btn-circle">❮</a> 
-            <a href="#slide3" className="btn btn-circle">❯</a>
-          </div>
-        </div> 
-        <div id="slide3" className="carousel-item relative w-full">
-          <img src="https://placeimg.com/800/200/arch" className="w-full" />
-          <div className="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
-            <a href="#slide2" className="btn btn-circle">❮</a> 
-            <a href="#slide4" className="btn btn-circle">❯</a>
-          </div>
-        </div> 
-        <div id="slide4" className="carousel-item relative w-full">
-          <img src="https://placeimg.com/800/200/arch" className="w-full" />
-          <div className="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
-            <a href="#slide3" className="btn btn-circle">❮</a> 
-            <a href="#slide1" className="btn btn-circle">❯</a>
-          </div>
+      <div className="carousel w-full">
+      <div id="slide1" className="carousel-item relative w-full">
+        <img src={banner1} className="w-full object-fill h-cover rounded-lg mt-3 mb-10" alt='' />
+        <div className="absolute text-center justify-between transform -translate-y-1/2 right-16 top-1/3"> 
+          <h1 className='text-5xl font-extrabold text-black'>Make Your Wedding</h1><br/>
+          <h1 className='text-5xl font-extrabold text-black'>A Wonderful Story!</h1>
+         
+         <button className='btn m-7 text-white'>discover</button>
+         <button className='btn btn-outline m-7'>Learn More</button>
         </div>
-      </div>
+      </div> 
+    </div>
     );
 };
 
