@@ -22,10 +22,28 @@ const Login = () => {
         login(email, password)
         .then(result=>{
             const user=result.user;
-            form.reset();
+            const currentUser={
+                  email: user.email
+            // form.reset();
+            // navigate(from,{replace:true})
+            // swal("Successfully Logged in!!", "success");
+            }
+            fetch('http://localhost:5000/jwt',{
+              method: 'POST',
+              headers:{
+                'content-type':'application/json'
+              },
+              body: JSON.stringify(currentUser)
+            })
+            .then(res=>res.json())
+            .then(data=>
+              {console.log(data);
+                localStorage.setItem('moment-token',data.token);
+                 form.reset();
             navigate(from,{replace:true})
-            swal("Successfully Loged in!!", "success");
-            
+             swal("Successfully Logged in!!", "success");
+
+              }); 
               })
         .catch(err=>{
             console.error(err)
@@ -34,12 +52,34 @@ const Login = () => {
     }
     const handleGoogleSignIn=()=>{
         providerLogin(googleProvider)
-        .then(result=>{
-          const user=result.user;
-          navigate(from,{replace:true})
-            swal("Successfully Loged in!!", "success");
+          .then(result=>{
+            const user=result.user;
+            const currentUser={
+                  email: user.email
+            // form.reset();
+            // navigate(from,{replace:true})
+            // swal("Successfully Logged in!!", "success");
+            }
+            fetch('http://localhost:5000/jwt',{
+              method: 'POST',
+              headers:{
+                'content-type':'application/json'
+              },
+              body: JSON.stringify(currentUser)
+            })
+            .then(res=>res.json())
+            .then(data=>
+              {console.log(data);
+                localStorage.setItem('moment-token',data.token);
+            navigate(from,{replace:true})
+             swal("Successfully Logged in!!", "success");
+
+              }); 
+              })
+        .catch(err=>{
+            console.error(err)
+        
         })
-        .catch(error=>console.error(error));
 }
 
     return (

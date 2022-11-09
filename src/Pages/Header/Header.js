@@ -18,10 +18,10 @@ const Header = () => {
         <li className='font-semibold'><Link to='/addService'>Add Service</Link></li>
         <li className='font-semibold'><Link to='/myReview'>My Review</Link></li>
         <li className='font-semibold'>
-        <button onClick={handleLogout} className='btn btn-error'>Logout</button></li>
+        <button onClick={handleLogout} className='btn bg-teal-600 text-white'>Logout</button></li>
         </>
         :
-        <li className='font-semibold'><Link to='/login'>Login</Link></li>
+        <li className='font-semibold '><Link to='/login' className=' btn bg-teal-600 text-white'>Login</Link></li>
         }
        
         
@@ -37,7 +37,7 @@ const Header = () => {
         {menuItems}
       </ul>
     </div>
-    <a className="btn btn-ghost normal-case text-xl">daisyUI</a>
+    <Link to='/' className='text-3xl text-teal-600 font-bold'>MOMENT US</Link>
   </div>
   <div className="navbar-center hidden lg:flex">
     <ul className="menu menu-horizontal p-0">
@@ -45,7 +45,16 @@ const Header = () => {
     </ul>
   </div>
   <div className="navbar-end">
-    <Link to='/signup' className="btn">Signup</Link>
+  {
+    user?.email?
+    <div className="avatar">
+  <div className="w-16 rounded-full">
+    <img src={user?.photoURL} alt=""/>
+  </div>
+</div>:
+    <Link to='/signup' className="btn bg-teal-600 text-white">Signup</Link>
+  }
+    
   </div>
 </div>
 

@@ -4,16 +4,23 @@ import { AuthContext } from '../../Context/AuthProvider/AuthProvider';
 
 const MyReview = () => {
     const [myReview,setMyReview]=useState([]);
-    const {user}=useContext(AuthContext);
+    const {user,logout}=useContext(AuthContext);
     useEffect(()=>{
-        fetch(`http://localhost:5000/myReview?email=${user?.email}`)
-        .then(res=>res.json())
+        fetch(`http://localhost:5000/myReview?email=${user?.email}`,{
+            headers: {
+                authorization: `Bearer ${localStorage.getItem('moment-token')}`
+            }
+        })
+        .then(res=>{
+            if(res.status===401 || res.status===403){
+               return logout();
+            }
+            return res.json()})
         .then(data=>{
-            console.log(data);
             setMyReview(data);
         });
 
-    },[user?.email])
+    },[user?.email,logout])
 
     const handleDelete=id=>{
         const proceed=window.confirm('Are you sure,you want to cancel the order?');

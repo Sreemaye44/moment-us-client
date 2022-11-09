@@ -5,7 +5,7 @@ import useTitle from '../../Hooks/useTitle';
 
 
 const SignUp = () => {
-    const{createUser} =useContext(AuthContext);
+    const{createUser, updateUserProfile} =useContext(AuthContext);
     useTitle('signup');
     const handleSignUp=event=>{
         event.preventDefault();
@@ -17,12 +17,22 @@ const SignUp = () => {
         createUser(email,password)
         .then(result=>{
           const user=result.user;
-          console.log(user);
+          handleUpdateUserProfile(username,photoUrl);
           swal("Successfully Sign Up!!", "success")
 
         })
         .catch(err=>console.error(err))
 
+    }
+
+    const handleUpdateUserProfile=(name,photoURL)=>{
+      const profile={
+        displayName: name,
+        photoURL: photoURL
+      }
+      updateUserProfile(profile)
+      .then(()=>{})
+      .catch(error=>console.error(error));
     }
     return (
         <div className="hero min-h-screen bg-base-200">

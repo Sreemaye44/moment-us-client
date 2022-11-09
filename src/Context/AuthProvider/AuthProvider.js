@@ -1,4 +1,4 @@
-import { createUserWithEmailAndPassword, getAuth, onAuthStateChanged, signInWithEmailAndPassword, signInWithPopup, signOut } from "firebase/auth";
+import { createUserWithEmailAndPassword, getAuth, onAuthStateChanged, signInWithEmailAndPassword, signInWithPopup, signOut, updateProfile } from "firebase/auth";
 import React, { createContext, useEffect, useState } from 'react';
 import app from "../../Firebase/firebase.config";
 
@@ -27,6 +27,9 @@ const AuthProvider = ({children}) => {
         setLoading(true);
         return signInWithPopup(auth, provider);
     }
+    const updateUserProfile=(profile)=>{
+        return updateProfile(auth.currentUser,profile);
+    }
 
     const logout=()=>{
         localStorage.removeItem('genius-token');
@@ -47,7 +50,8 @@ const AuthProvider = ({children}) => {
         createUser, 
         login,
         providerLogin,
-        logout
+        logout,
+        updateUserProfile
 
     }
     return (

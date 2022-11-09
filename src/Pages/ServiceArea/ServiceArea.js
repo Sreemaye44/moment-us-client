@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
+import { PhotoProvider, PhotoView } from 'react-photo-view';
+import 'react-photo-view/dist/react-photo-view.css';
 
 const ServiceArea = () => {
     const [services, setServices]=useState([]);
@@ -21,7 +23,13 @@ const ServiceArea = () => {
         {
             services.map(service=>
                 <div className="card lg:card-side bg-base-100 shadow-xl">
-  <figure><img src={service.image} className="h-64 w-64" alt="Album"/></figure>
+  <figure>
+  <PhotoProvider>
+      <PhotoView src={service.image}>
+        <img src={service.image} className="h-48 w-48" alt="" />
+      </PhotoView>
+    </PhotoProvider>
+  </figure>
   <div className="card-body">
     <h2 className="card-title">{service.serviceName}!</h2>
     <p>{service.description}.</p>
