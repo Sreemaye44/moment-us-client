@@ -12,11 +12,11 @@ const ServiceDetails = () => {
     const {serviceName, image, rating, _id, description, price}=service;
     
     return (
-       <div className='mt-5 flex'>
-         <div className="card card-compact w-2/5 bg-base-100 shadow-xl">
+       <div className='mt-5 lg:flex'>
+         <div className="card card-compact  w-1/2 mx-auto bg-base-100 shadow-xl">
   <figure> <PhotoProvider>
       <PhotoView src={service.image}>
-        <img src={service.image} className="h-96 w-full" alt="" />
+        <img src={service.image} className="h-96 w-96" alt="" />
       </PhotoView>
     </PhotoProvider></figure>
   <div className="card-body">
@@ -25,7 +25,7 @@ const ServiceDetails = () => {
     <div className="card-actions justify-end">
     <p className='text-xl mt-2'>rating: {rating}</p>
    <p className='text-xl mt-2'>Price: {price}</p>
-      <button className="btn btn-primary">Booking Now</button>
+      <button className="btn btn-primary">Booking</button>
     </div>
   </div>
 </div>

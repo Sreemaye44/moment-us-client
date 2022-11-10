@@ -49,7 +49,7 @@ const Review = ({service}) => {
 
  
     return (
-        <div className='w-1/2 mx-auto'>
+        <div className=' mx-auto p-5'>
         <form onSubmit={handleReview}>
           <h2 className='text-l
           '>Add a review: </h2>

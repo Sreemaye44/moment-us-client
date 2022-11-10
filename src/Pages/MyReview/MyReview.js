@@ -50,7 +50,7 @@ const MyReview = () => {
     }
 
     return (
-        <div className='grid grid-cols-2 gap-5 p-5'>
+        <div className='lg:grid grid-cols-2 gap-5 p-5'>
             {  !myReview.length? "No Review to show":
                 myReview.map(review=><>
                     <div className=' bg-slate-300  p-5'>
@@ -70,7 +70,7 @@ const MyReview = () => {
           <div className='flex'>
             <p className='px-10'>Rating: {review.rating}</p>
 
-            <p>{review.creationDate.substring(1,8)}</p>
+            <p>{review.creationDate.substring(0,16).split('T').join(' ')}</p>
             
           </div>
           <p className='px-10 py-3'>{review.message}</p>

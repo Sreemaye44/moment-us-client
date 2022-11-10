@@ -21,7 +21,7 @@ const AllService = () => {
     },[])
     //
     return (
-       <div className='w-1/2 mx-auto'>
+       <div className='w-3/4 mx-auto'>
         <h2 className='text-center font-bold mb-3 text-teal-600 text-3xl p'>Our Services</h2>
         {  loader? <div class="flex">
     <div class="relative">

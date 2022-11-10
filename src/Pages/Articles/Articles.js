@@ -8,8 +8,8 @@ const Articles = () => {
         <>
         <h1 className='text-center text-5xl mt-20'>NEWS & ARTICLES</h1>
         <p className='text-center text-xl mb-10 mt-5'>Moment us photography related news and articles are available. We are now <br></br> top for pre wedding & wedding photography</p>
-        <div className='flex justify-between my-10'>
-            <div className="card w-96 bg-base-100 shadow-xl image-full">
+        <div className='lg:flex justify-between my-10'>
+            <div className="card w-96 bg-base-100 shadow-xl  image-full">
   <figure><img src={art1} alt="Shoes" /></figure>
   <div className="card-body">
     <h2 className="card-title">This is a best photography Blog for Wedding!</h2>
