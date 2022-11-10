@@ -21,7 +21,7 @@ const AddService = () => {
             price,
             description
         }
-        fetch('http://localhost:5000/services', {
+        fetch('https://moment-us-server.vercel.app/services', {
     method: 'POST',
     headers: {
       'content-type': 'application/json'
@@ -40,17 +40,19 @@ const AddService = () => {
     }
 
     return (
-        <form onSubmit={handleAddService}>
-            <input type="text" name="serviceName" placeholder="serviceName" className="input input-bordered input-warning w-full max-w-xs" />
-            <input type="text" name="image" placeholder="image" className="input input-bordered input-warning w-full max-w-xs" />
-            <input type="text" name="rating" placeholder="rating" className="input input-bordered input-warning w-full max-w-xs" />
-            <input type="text" name="price" placeholder="price" className="input input-bordered input-warning w-full max-w-xs" />
-            <input type="text" name="description" placeholder="description" className="input input-bordered input-warning w-full max-w-xs" />
+        <div className='p-10 bg-slate-200'>
+          <form onSubmit={handleAddService} className='w-3/4 mx-auto'>
+            <input type="text" name="serviceName" placeholder="serviceName" className="input input-bordered input-warning w-full max-w-xs my-3 mr-5" />
+            <input type="text" name="image" placeholder="imageURL" className="input input-bordered input-warning w-full max-w-xs my-3" /><br/>
+            <input type="text" name="rating" placeholder="rating" className="input input-bordered input-warning w-full max-w-xs my-3 mr-5" />
+            <input type="text" name="price" placeholder="price" className="input input-bordered input-warning w-full max-w-xs my-3" /><br/>
+            <textarea type="text" name="description" placeholder="description" className="textarea textarea-bordered h-24 w-3/4 my-3" /><br/>
             <input type="text" name="email" placeholder="email" defaultValue={user?.email} className="input input-bordered input-warning w-full 
-            max-w-xs" readOnly />
-            <input type="submit" className='btn' value="ADD" />
+            max-w-xs my-3" readOnly /><br/>
+            <input type="submit" className='btn bg-teal-600 text-white' value="ADD" />
             
         </form>
+        </div>
     );
 };
 

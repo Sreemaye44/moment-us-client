@@ -1,9 +1,9 @@
-import React, { useContext, useState } from 'react';
+import { GoogleAuthProvider } from 'firebase/auth';
+import React, { useContext } from 'react';
+import { FaGoogle } from 'react-icons/fa';
 import { useLocation, useNavigate } from 'react-router-dom';
 import swal from 'sweetalert';
-import { FaGoogle } from 'react-icons/fa';
 import { AuthContext } from '../../Context/AuthProvider/AuthProvider';
-import { GoogleAuthProvider } from 'firebase/auth';
 import useTitle from '../../Hooks/useTitle';
 
 const Login = () => {
@@ -28,7 +28,7 @@ const Login = () => {
             // navigate(from,{replace:true})
             // swal("Successfully Logged in!!", "success");
             }
-            fetch('http://localhost:5000/jwt',{
+            fetch('https://moment-us-server.vercel.app/jwt',{
               method: 'POST',
               headers:{
                 'content-type':'application/json'
@@ -60,7 +60,7 @@ const Login = () => {
             // navigate(from,{replace:true})
             // swal("Successfully Logged in!!", "success");
             }
-            fetch('http://localhost:5000/jwt',{
+            fetch('https://moment-us-server.vercel.app/jwt',{
               method: 'POST',
               headers:{
                 'content-type':'application/json'
@@ -84,11 +84,6 @@ const Login = () => {
 
     return (
         <div className="hero min-h-screen bg-base-200">
-  <div className="hero-content flex-col lg:flex-row-reverse">
-    <div className="text-center lg:text-left">
-      <h1 className="text-5xl font-bold">SignUp now!</h1>
-      <p className="py-6">Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda excepturi exercitationem quasi. In deleniti eaque aut repudiandae et a id nisi.</p>
-    </div>
     
     <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
       <div className="card-body">
@@ -109,15 +104,14 @@ const Login = () => {
           </label>
         </div>
         <div className="form-control mt-6">
-        <input className='btn btn-error mb-5' type="submit" value="Login" />
+        <input className='btn bg-teal-600 text-white mb-5' type="submit" value="Login" />
         
         </div>
         </form>
-        <button onClick={handleGoogleSignIn} className='btn btn-error'><FaGoogle></FaGoogle>oogle</button>
+        <button onClick={handleGoogleSignIn} className='btn bg-teal-600 text-white'><FaGoogle></FaGoogle>oogle</button>
       </div>
     </div>
   </div>
-</div>
     )
 };
 

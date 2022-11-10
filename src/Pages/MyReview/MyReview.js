@@ -1,12 +1,15 @@
 import React, { useContext, useEffect, useState } from 'react';
+import { FaEdit, FaTrash } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../../Context/AuthProvider/AuthProvider';
+import useTitle from '../../Hooks/useTitle';
 
 const MyReview = () => {
+    useTitle('my review');
     const [myReview,setMyReview]=useState([]);
     const {user,logout}=useContext(AuthContext);
     useEffect(()=>{
-        fetch(`http://localhost:5000/myReview?email=${user?.email}`,{
+        fetch(`https://moment-us-server.vercel.app/myReview?email=${user?.email}`,{
             headers: {
                 authorization: `Bearer ${localStorage.getItem('moment-token')}`
             }
@@ -25,7 +28,7 @@ const MyReview = () => {
     const handleDelete=id=>{
         const proceed=window.confirm('Are you sure,you want to cancel the order?');
         if(proceed){
-            fetch(`http://localhost:5000/myReview/${id}`,{
+            fetch(`https://moment-us-server.vercel.app/myReview/${id}`,{
                 method: 'DELETE'
             })
             .then(res=>res.json())
@@ -40,21 +43,30 @@ const MyReview = () => {
     }
 
     return (
-        <div>
-            {
+        <div className='grid grid-cols-2 gap-5 p-5'>
+            {  !myReview.length? "No Review to show":
                 myReview.map(review=><>
-                    <div className='flex'>
-                        <h2>{review.serviceName}</h2>
-                        <img src={user?.photoURL} alt="" srcset="" />
-                        <Link to={`/editReview/${review._id}`}><button className='btn'>edit</button></Link>
-                        <button onClick={()=>handleDelete(review._id)}  className='btn'>Delete
-                        
-                        
-                        </button>
-                    </div>
-                    <div>
-                        <p>Review: {review.message}</p>
-                        <p>ratings: {review.rating}</p>
+                    <div className=' bg-slate-300  p-5'>
+                    <div className='flex gap-4 py-3 bg-slate-300'>
+          <div className="avatar ">
+  <div className="w-6 rounded-full ring ring-offset-base-100 ring-offset-2">
+    <img src={review?.userImage} alt="" />
+    
+  </div>
+</div>
+          <h3 className='text'>{review.userName}</h3>
+          <div className='flex gap-5'>
+                       <Link to={`/editReview/${review._id}`}><button className='block'><FaEdit></FaEdit></button></Link>
+                        <button onClick={()=>handleDelete(review._id)}  className><FaTrash></FaTrash></button>
+                       </div>
+          </div>
+          <div className='flex'>
+            <p className='px-10'>Rating: {review.rating}</p>
+
+            <p>{review.creationDate}</p>
+          </div>
+          <p className='px-10 py-3'>{review.message}</p>
+                     
                     </div>
                 </>)
             }

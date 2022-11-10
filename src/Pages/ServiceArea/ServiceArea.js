@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
 import { PhotoProvider, PhotoView } from 'react-photo-view';
 import 'react-photo-view/dist/react-photo-view.css';
+import { Link } from 'react-router-dom';
 
 const ServiceArea = () => {
     const [services, setServices]=useState([]);
     useEffect(()=>{
-        fetch('http://localhost:5000/services?total=3')
+        fetch('https://moment-us-server.vercel.app/services?total=3')
         .then(res=>res.json())
         .then(data=>{
             console.log(data)

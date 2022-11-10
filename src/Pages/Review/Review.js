@@ -1,9 +1,8 @@
 import React, { useContext } from 'react';
-import { FaUser } from 'react-icons/fa';
+import { Link } from 'react-router-dom';
+import userDefault from '../../../src/assets/user-default.png';
 import { AuthContext } from '../../Context/AuthProvider/AuthProvider';
 import ShowReview from '../ShowReview/ShowReview';
-import userDefault from '../../../src/assets/user-default.png'
-import { Link } from 'react-router-dom';
 
 const Review = ({service}) => {
     const {user}=useContext(AuthContext);
@@ -22,9 +21,10 @@ const Review = ({service}) => {
             message,
             userName:user.displayName,
             userImage: user.photoURL,
-            email: user.email
+            email: user.email,
+
         }
-        fetch('http://localhost:5000/review', {
+        fetch('https://moment-us-server.vercel.app/review', {
     method: 'POST',
     headers: {
       'content-type': 'application/json'
@@ -59,17 +59,17 @@ const Review = ({service}) => {
           </div>
          <div className='grid grid-cols-1 md:grid-cols-2 gap-4'>
          </div>
-         <div className='flex'>
-         <input type="number" name="rating" placeholder="Rate our service" className="input input-bordered max-w-xs" />
-         <textarea name="message" className="textarea textarea-bordered h-4 my-2 w-full" placeholder="Your review" required></textarea>
+         <div className>
+         <input type="number" name="rating" className="textarea textarea-bordered my-2 w-full" placeholder="Your rating" required></input>
+         <textarea name="message" className="textarea textarea-bordered h-6 w-full" placeholder="Your review" required></textarea>
          </div>
          {
             user?.email?
-            <input className='btn btn-error' type="submit" value="Post" />
+            <div className='flex justify-end'><input className='btn bg-teal-600 text-white' type="submit" value="Post" /></div>
             :
             <>
            
-            <p>To post a review Please <Link to='/login'><button className='btn'>Login</button></Link></p>
+            <p className='text-xl text-red-500' >To post a review Please <Link to='/login'><button className='btn bg-teal-600 text-white'>Login</button></Link></p>
             </>
          }
          
