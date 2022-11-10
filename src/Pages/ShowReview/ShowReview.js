@@ -32,7 +32,7 @@ const ShowReview = ({service}) => {
           <div className='flex'>
             <p className='px-10'>Rating: {sr.rating}</p>
 
-            <p>{sr.creationDate}</p>
+            <p>{sr.creationDate.substring(0,18).split('T').join(' ')}</p>
           </div>
           <p className='px-10 py-3'>{sr.message}</p>
 

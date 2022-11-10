@@ -1,6 +1,6 @@
 import React from 'react';
-import art1 from '../../../src/assets/photo-1625492922105-5914617fd869.avif'
-import art2 from '../../../src/assets/photo-1593106584374-89259e7efb8b.avif'
+import art1 from '../../../src/assets/photo-1513031300226-c8fb12de9ade.avif'
+import art2 from '../../../src/assets/photo-1493863641943-9b68992a8d07.avif'
 import art3 from '../../../src/assets/photo-1516357231954-91487b459602.avif'
 
 const Articles = () => {
