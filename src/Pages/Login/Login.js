@@ -1,5 +1,5 @@
 import { GoogleAuthProvider } from 'firebase/auth';
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import { FaGoogle } from 'react-icons/fa';
 import { useLocation, useNavigate } from 'react-router-dom';
 import swal from 'sweetalert';
@@ -8,6 +8,7 @@ import useTitle from '../../Hooks/useTitle';
 
 const Login = () => {
     const {login,providerLogin}=useContext(AuthContext);
+    const [loading,setLoading] = useState(false);
     useTitle('Login');
  
     const googleProvider=new GoogleAuthProvider()
@@ -16,6 +17,7 @@ const Login = () => {
   const from=location.state?.from?.pathname || '/';
     const handleLogin=event=>{
         event.preventDefault();
+        setLoading(true)
         const form=event.target;
         const email=form.email.value;
         const password=form.password.value;
@@ -37,7 +39,7 @@ const Login = () => {
             })
             .then(res=>res.json())
             .then(data=>
-              {console.log(data);
+              { setLoading(false)
                 localStorage.setItem('moment-token',data.token);
                  form.reset();
             navigate(from,{replace:true})
@@ -51,6 +53,7 @@ const Login = () => {
         })
     }
     const handleGoogleSignIn=()=>{
+      setLoading(true)
         providerLogin(googleProvider)
           .then(result=>{
             const user=result.user;
@@ -69,7 +72,7 @@ const Login = () => {
             })
             .then(res=>res.json())
             .then(data=>
-              {console.log(data);
+              {setLoading(false)
                 localStorage.setItem('moment-token',data.token);
             navigate(from,{replace:true})
              swal("Successfully Logged in!!", "success");
@@ -88,6 +91,16 @@ const Login = () => {
     <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
       <div className="card-body">
         <form onSubmit={handleLogin}>
+        {
+          loading ? 
+          <div class="flex">
+              <div class="relative">
+                <div class="w-12 h-12 rounded-full absolute border border-solid border-gray-200"></div>
+                <div class="w-12 h-12 rounded-full animate-spin absolute border border-solid border-yellow-500 border-t-transparent"></div>
+              </div>
+          </div> 
+          : ""
+        }
         <div className="form-control">
           <label className="label">
             <span className="label-text">Email</span>

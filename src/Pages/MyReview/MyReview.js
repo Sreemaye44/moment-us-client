@@ -11,6 +11,7 @@ const MyReview = () => {
     useTitle('my review');
     const [myReview,setMyReview]=useState([]);
     const {user,logout}=useContext(AuthContext);
+    const [loading,setLoading]=useState(true)
     useEffect(()=>{
         fetch(`https://moment-us-server.vercel.app/myReview?email=${user?.email}`,{
             headers: {
@@ -25,6 +26,7 @@ const MyReview = () => {
         .then(data=>{
             console.log(data);
             setMyReview(data);
+            setLoading(false)
         });
 
     },[user?.email,logout])
@@ -50,8 +52,18 @@ const MyReview = () => {
     }
 
     return (
-        <div className='lg:grid grid-cols-2 gap-5 p-5'>
-            {  !myReview.length? "No Review to show":
+        <div className='grid grid-cols-2 gap-5 p-5'>
+            { (loading)? <div class="flex">
+    <div class="relative">
+       
+        <div class="w-12 h-12 rounded-full absolute
+    border border-solid border-gray-200"></div>
+
+        
+        <div class="w-12 h-12 rounded-full animate-spin absolute
+    border border-solid border-yellow-500 border-t-transparent"></div>
+    </div>
+</div> : (myReview.length<0)? "No Review to show":
                 myReview.map(review=><>
                     <div className=' bg-slate-300  p-5'>
                     <div className='flex gap-4 py-3 bg-slate-300'>
@@ -70,7 +82,7 @@ const MyReview = () => {
           <div className='flex'>
             <p className='px-10'>Rating: {review.rating}</p>
 
-            <p>{review.creationDate.substring(0,16).split('T').join(' ')}</p>
+            <p>{review.creationDate.substring(0,1).split('T').join(' ')}</p>
             
           </div>
           <p className='px-10 py-3'>{review.message}</p>
