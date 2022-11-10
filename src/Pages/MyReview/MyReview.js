@@ -1,6 +1,9 @@
 import React, { useContext, useEffect, useState } from 'react';
 import { FaEdit, FaTrash } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
+import { toast, ToastContainer } from 'react-toastify';
+import swal from 'sweetalert';
+import 'react-toastify/dist/ReactToastify.css';
 import { AuthContext } from '../../Context/AuthProvider/AuthProvider';
 import useTitle from '../../Hooks/useTitle';
 
@@ -20,6 +23,7 @@ const MyReview = () => {
             }
             return res.json()})
         .then(data=>{
+            console.log(data);
             setMyReview(data);
         });
 
@@ -34,9 +38,12 @@ const MyReview = () => {
             .then(res=>res.json())
             .then(data=>{
                 if(data.deletedCount>0){
-                    alert('deleted Successfully');
+                    toast.success('Success Delete !', {
+                        position: toast.POSITION.TOP_CENTER
+                    });
                     const remaining=myReview.filter(rvw=>rvw._id!==id);
                     setMyReview(remaining);
+                    
                 }
             })
         }
@@ -63,9 +70,11 @@ const MyReview = () => {
           <div className='flex'>
             <p className='px-10'>Rating: {review.rating}</p>
 
-            <p>{review.creationDate}</p>
+            <p>{review.creationDate.substring(1,8)}</p>
+            
           </div>
           <p className='px-10 py-3'>{review.message}</p>
+          <p className='text-teal-700 font-semibold'>{review.serviceName}</p>
                      
                     </div>
                 </>)

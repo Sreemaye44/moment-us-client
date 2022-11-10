@@ -1,4 +1,6 @@
 import React, { useContext, useState } from 'react';
+import { toast } from 'react-toastify';
+import swal from 'sweetalert';
 import { AuthContext } from '../../Context/AuthProvider/AuthProvider';
 import useTitle from '../../Hooks/useTitle';
 
@@ -33,7 +35,9 @@ const AddService = () => {
   .then(res=>res.json())
   .then(data=>{
     if(data.acknowledged){
-      alert('service posted successfully')
+      toast.success('Success added !', {
+        position: toast.POSITION.TOP_CENTER
+    });
       form.reset();
     }
     console.log(data)})

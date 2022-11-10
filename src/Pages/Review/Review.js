@@ -1,5 +1,6 @@
 import React, { useContext, useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
+import { toast } from 'react-toastify';
 import userDefault from '../../../src/assets/user-default.png';
 import { AuthContext } from '../../Context/AuthProvider/AuthProvider';
 import ShowReview from '../ShowReview/ShowReview';
@@ -36,7 +37,9 @@ const Review = ({service}) => {
   .then(res=>res.json())
   .then(data=>{
     if(data.acknowledged){
-      alert('review posted successfully')
+      toast.success('Success Notification !', {
+        position: toast.POSITION.TOP_CENTER
+    });
       form.reset();
     }
     console.log(data)})
