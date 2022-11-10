@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import useTitle from '../../Hooks/useTitle';
 
-const ShowReview = ({service}) => {
+const ShowReview = ({service,newReview}) => {
     const [showReview,setShowReview]=useState([]);
+    const [currentReview,setCurrentReview]=useState({});
     useTitle('Reviews');
     useEffect(()=>{
         fetch(`https://moment-us-server.vercel.app/review?service=${service._id}`)

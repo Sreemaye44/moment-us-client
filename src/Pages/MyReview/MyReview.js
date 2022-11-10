@@ -63,7 +63,7 @@ const MyReview = () => {
         <div class="w-12 h-12 rounded-full animate-spin absolute
     border border-solid border-yellow-500 border-t-transparent"></div>
     </div>
-</div> : (myReview.length<0)? "No Review to show":
+</div> : (myReview.length<=0)? <div><h3 className='text-center'>No reviews were added</h3></div>:
                 myReview.map(review=><>
                     <div className=' bg-slate-300  p-5'>
                     <div className='flex gap-4 py-3 bg-slate-300'>
