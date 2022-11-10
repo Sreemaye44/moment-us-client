@@ -1,15 +1,39 @@
-import React, { useContext } from 'react';
+import React, { useContext,useEffect,useState } from 'react';
 import { FaStar } from 'react-icons/fa';
 import { PhotoProvider, PhotoView } from 'react-photo-view';
 import { Link, useLoaderData } from 'react-router-dom';
+import { AuthContext } from '../../Context/AuthProvider/AuthProvider';
+import useTitle from '../../Hooks/useTitle';
 
 const AllService = () => {
-    const allService=useLoaderData();
-   
+  const[loader,setLoader]=useState(true);
+  const [allService,setAllService]=useState([])
+   // const {loading}=useContext(AuthContext);
+    useTitle('all services');
+    //const allService=useLoaderData();
+    useEffect(()=>{
+      fetch('https://moment-us-server.vercel.app/services')
+      .then(res=>res.json())
+      .then(data=>{
+        setAllService(data)
+        setLoader(false)
+      })
+    },[])
+    //
     return (
        <div className='w-1/2 mx-auto'>
         <h2 className='text-center font-bold mb-3 text-teal-600 text-3xl p'>Our Services</h2>
-        {
+        {  loader? <div class="flex">
+    <div class="relative">
+       
+        <div class="w-12 h-12 rounded-full absolute
+    border border-solid border-gray-200"></div>
+
+        
+        <div class="w-12 h-12 rounded-full animate-spin absolute
+    border border-solid border-yellow-500 border-t-transparent"></div>
+    </div>
+</div> :
             allService.map(service=>
             <div className="card  bg-base-100 shadow-xl my-5 border-2 hover:border-t-4">
   <figure>
@@ -40,7 +64,7 @@ const AllService = () => {
    
         
     );
-        
+           
 
 };
 

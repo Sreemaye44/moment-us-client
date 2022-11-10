@@ -8,7 +8,7 @@ const ShowReview = ({service}) => {
         fetch(`https://moment-us-server.vercel.app/review?service=${service._id}`)
         .then(res=>res.json())
         .then(data=>{
-            console.log(data)
+            //console.log(data)
             setShowReview(data);
         });
 

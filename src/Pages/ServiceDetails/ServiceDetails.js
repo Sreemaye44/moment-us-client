@@ -25,7 +25,7 @@ const ServiceDetails = () => {
     <div className="card-actions justify-end">
     <p className='text-xl mt-2'>rating: {rating}</p>
    <p className='text-xl mt-2'>Price: {price}</p>
-      <button className="btn btn-primary">Buy Now</button>
+      <button className="btn btn-primary">Booking Now</button>
     </div>
   </div>
 </div>

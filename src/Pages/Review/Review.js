@@ -1,13 +1,15 @@
-import React, { useContext } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import userDefault from '../../../src/assets/user-default.png';
 import { AuthContext } from '../../Context/AuthProvider/AuthProvider';
 import ShowReview from '../ShowReview/ShowReview';
 
 const Review = ({service}) => {
+  const [newReview, setNewReview]=useState([]);
     const {user}=useContext(AuthContext);
-    const {serviceName, image, rating, _id, description, price}=service;
-    
+    const {serviceName,_id}=service;
+    useEffect(()=>{
+    },[newReview])
     const handleReview=event=>{
         event.preventDefault();
         const form=event.target;

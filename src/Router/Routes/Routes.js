@@ -37,7 +37,7 @@ const router=createBrowserRouter([
         {
          path: '/allService',
          element: <AllService></AllService>,
-         loader: ()=>fetch(`https://moment-us-server.vercel.app/services`)
+         //loader: ()=>fetch(`https://moment-us-server.vercel.app/services`)
           
         },
         {

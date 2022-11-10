@@ -1,6 +1,6 @@
 import React from 'react';
 import banner1 from '../../../src/assets/photo-1591604466107-ec97de577aff.avif';
-import banner2 from '../../../src/assets/photo-1497387674890-4ecd2af62493.avif';
+
 
 const Banner = () => {
     return (

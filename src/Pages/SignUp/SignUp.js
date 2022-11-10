@@ -1,4 +1,5 @@
 import React, { useContext } from 'react';
+import { useNavigate } from 'react-router-dom';
 import swal from 'sweetalert';
 import { AuthContext } from '../../Context/AuthProvider/AuthProvider';
 import useTitle from '../../Hooks/useTitle';
@@ -6,6 +7,7 @@ import useTitle from '../../Hooks/useTitle';
 
 const SignUp = () => {
     const{createUser, updateUserProfile} =useContext(AuthContext);
+    const navigate=useNavigate();
     useTitle('signup');
     const handleSignUp=event=>{
         event.preventDefault();
@@ -17,8 +19,11 @@ const SignUp = () => {
         createUser(email,password)
         .then(result=>{
           const user=result.user;
+          console.log(user)
           handleUpdateUserProfile(username,photoUrl);
-          swal("Successfully Sign Up!!", "success")
+          swal("Successfully Sign Up!!", "success");
+          navigate('/');
+          
 
         })
         .catch(err=>console.error(err))

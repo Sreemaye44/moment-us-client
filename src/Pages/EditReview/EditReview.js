@@ -1,13 +1,15 @@
-import React, { useContext } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { useLoaderData } from 'react-router-dom';
 import { AuthContext } from '../../Context/AuthProvider/AuthProvider';
 import useTitle from '../../Hooks/useTitle';
 
 const EditReview = () => {
     const {user}=useContext(AuthContext);
+     const [upReview,setUpReview]=useState([]);
+    useEffect(()=>{
+    },[upReview.message])
     useTitle('update review');
    const review=useLoaderData();
-   console.log(review);
 
     const handleReviewUpdate=(e)=>{
         e.preventDefault();
@@ -27,6 +29,9 @@ const EditReview = () => {
        .then(data=>{
         if(data.modifiedCount>0){
             alert('user updated')
+            review.message=updatedReview.message;
+            setUpReview(review);
+
         }
         console.log(data);
         e.target.reset();
