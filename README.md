@@ -1,70 +1,67 @@
-# Getting Started with Create React App
+# MOMENT US
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+MOMENT US is a professional wedding photography page that gives services of different types of photography related wedding or wedding related others photography
+## [Live link](https://moment-us-86884.web.app/)
 
-## Available Scripts
+## Description
+MOMENT US gives services of wedding photography. You can login/ sign up their website to give review of their work if you have taken services from them. Service added is also possible by the admin. If you want to change your review you can also change it. Also it will show you others review on any specific service
 
-In the project directory, you can run:
+### Functionalities
 
-### `npm start`
+* Login & Registration is available for the website
+* There are different types of course details avalable where users can add comments and review
+* Image Viewer is available for their service images
+* User can add his review if he ise logged in
+* See users review and add services are protected by private route, without login he can not access there.
+* User can edit and delete his review
+* Admin can add services
+* Adding new services will show in the homepage where services are limited to show. To see more service go to 'see more' button
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Getting Started
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+### Dependencies
 
-### `npm test`
+* "bootstrap": "^5.2.2",
+* "firebase": "^9.12.1",
+* "html2canvas": "^1.4.1"
+* "jspdf": "^2.5.1",
+* "react": "^18.2.0"
+* "tailwind-DaisyUi"
+* "react-icons": "^4.6.0"
+* "react-router-dom": "^6.4.2"
+* "MongoDB"
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-### `npm run build`
+### Technologies
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+* JavaScript
+* React Router dom
+* Firebase
+* Tailwind
+* MongoDB Atlas
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### Pages
 
-### `npm run eject`
+* Homepage
+* Add Service
+* Login
+* Sign Up
+* My Review
+* Service Details
+* 404 not found
+* Edit Review
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## Acknowledgments
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+Inspiration, code snippets, etc.
+* [react-router-dom](https://reactrouter.com/en/main)
+* [Firebase](https://firebase.google.com/)
+* [React-icons](https://react-icons.github.io/react-icons/)
+* [DaisyUI](https://daisyui.com/)
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
 
-## Learn More
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
-To learn React, check out the [React documentation](https://reactjs.org/).
 
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
