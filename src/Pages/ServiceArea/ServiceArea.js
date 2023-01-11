@@ -30,7 +30,7 @@ const ServiceArea = () => {
   <div className="card-body">
     <h2 className=" text-center text-4xl font-semibold">{service.serviceName}!</h2>
     <div>
-    <p className='text-center text- p-1'>{service.description.slice(0,100)}.</p>
+    <p className='text-center text- p-1'>{service?.description}.</p>
     </div>
     <div className="card-actions justify-between ">
     

@@ -60,7 +60,7 @@ const Login = () => {
             const user=result.user;
             const currentUser={
                   email: user.email
-            // form.reset();
+          
             // navigate(from,{replace:true})
             // swal("Successfully Logged in!!", "success");
             }
